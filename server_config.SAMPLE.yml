@@ -5,13 +5,15 @@ digital_ocean:
   region:    Amsterdam 1
   size:      1GB
 
-# For Vagrant only
+# Only for VirtualBox
 shared_dir:
   host:  ~/path/to/your/project/code
   guest: /home/deployer/app/current
 
-# Keys for the deployer user ~/.ssh/authorized_keys
+# Keys for the user on server (~/.ssh/authorized_keys)
 chef_conf:
   ssh_keys:
     - 'ssh-rsa AAAA...'
     - 'ssh-rsa AAAA...'
+  ruby_version: 2.1.0
+  database_name: app_production
