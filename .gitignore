@@ -1,2 +1,4 @@
 .vagrant
+.ruby-version
+
 server_config.yml

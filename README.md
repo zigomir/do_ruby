@@ -56,6 +56,11 @@ exit
 
 ### Possible problems
 
+You can get into trouble if you're gonna use this cookbook from different
+machines. This is because when you will create new droplet for the first time
+it will generate a new Vagrant ssh key and send it to server. On another machine
+you won't have same key.
+
 ```
 Shared folders that Chef requires are missing on the virtual machine.
 This is usually due to configuration changing after already booting the
@@ -63,10 +68,11 @@ machine. The fix is to run a `vagrant reload` so that the proper shared
 folders will be prepared and mounted on the VM.
 ```
 
-TODO: find out how to work around it
+This is unfortunately a problem on Windows currently. I don't know yet how
+to work around, but this doesn't happen on OS X and probably Linux too.
 
 ## TODO
 
-- define user and app name in `server_config.yml` or `attributes`?
+- define user and app name in `server_config.yml`
 - wget/curl command to get `Vagrantfile` and server_config.yml copied to
 your project

@@ -8,10 +8,10 @@
       "locked_version": "0.3.0"
     },
     "apt": {
-      "locked_version": "2.3.0"
+      "locked_version": "2.3.4"
     },
     "git": {
-      "locked_version": "2.7.0"
+      "locked_version": "2.9.0"
     },
     "build-essential": {
       "locked_version": "1.4.2"
@@ -22,23 +22,23 @@
     "dmg": {
       "locked_version": "2.1.2"
     },
-    "yum": {
-      "locked_version": "3.0.4"
-    },
     "windows": {
       "locked_version": "1.12.6"
     },
     "runit": {
       "locked_version": "1.5.8"
     },
+    "yum": {
+      "locked_version": "3.0.4"
+    },
+    "yum-epel": {
+      "locked_version": "0.2.0"
+    },
     "ohai": {
       "locked_version": "1.1.12"
     },
     "chef_handler": {
       "locked_version": "1.1.4"
-    },
-    "yum-epel": {
-      "locked_version": "0.2.0"
     }
   }
 }
