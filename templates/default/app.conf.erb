@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+    ServerName <%= @server_name %>
+
+    PassengerRuby /opt/rbenv/versions/<%= @ruby_version %>/bin/ruby
+    DocumentRoot /home/deployer/app/current/public
+    <Directory /home/deployer/app/current/public>
+        Allow from all
+        Options -MultiViews
+    </Directory>
+</VirtualHost>

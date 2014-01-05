@@ -1,0 +1,44 @@
+{
+  "dependencies": {
+    "do_ruby": {
+      "locked_version": "0.0.1",
+      "path": "."
+    },
+    "user": {
+      "locked_version": "0.3.0"
+    },
+    "apt": {
+      "locked_version": "2.3.0"
+    },
+    "git": {
+      "locked_version": "2.7.0"
+    },
+    "build-essential": {
+      "locked_version": "1.4.2"
+    },
+    "rbenv": {
+      "locked_version": "1.7.1"
+    },
+    "dmg": {
+      "locked_version": "2.1.2"
+    },
+    "yum": {
+      "locked_version": "3.0.4"
+    },
+    "windows": {
+      "locked_version": "1.12.6"
+    },
+    "runit": {
+      "locked_version": "1.5.8"
+    },
+    "ohai": {
+      "locked_version": "1.1.12"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.4"
+    },
+    "yum-epel": {
+      "locked_version": "0.2.0"
+    }
+  }
+}
