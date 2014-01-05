@@ -1,0 +1,3 @@
+source 'http://api.berkshelf.com'
+
+cookbook 'do_ruby', github: 'zigomir/do_ruby'
