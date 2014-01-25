@@ -80,4 +80,4 @@ to work around, but this doesn't happen on OS X and probably Linux too.
 
 ## TODO
 
-- define user and app name in `server_config.yml`
+- define app name in `server_config.yml`

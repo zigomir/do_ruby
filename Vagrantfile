@@ -53,7 +53,7 @@ Vagrant.configure('2') do |config|
     chef.add_recipe 'do_ruby::ruby'
     chef.add_recipe 'do_ruby::postgres'
     chef.add_recipe 'do_ruby::passenger'
-    #chef.add_recipe 'do_ruby::node'
+    chef.add_recipe 'do_ruby::node'
 
     # choose conf based on provider name (virtualbox or digital_ocean)
     chef.json = { chef_conf: CONF[provider_name] }
