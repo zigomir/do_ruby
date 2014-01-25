@@ -19,7 +19,7 @@ Vagrant.configure('2') do |config|
     override.vm.synced_folder CONF['shared_dir']['host'], CONF['shared_dir']['guest'],
       :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
 
-    override.vm.network :forwarded_port,  guest: 80, host: 80
+    override.vm.network :forwarded_port,  guest: 3000, host: 3000
     override.vm.network :private_network, ip: '3.3.3.3'
 
     provider.customize ['modifyvm', :id, '--name',  'do_ruby']
