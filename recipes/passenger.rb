@@ -27,19 +27,19 @@ template '/etc/apache2/sites-available/app.conf' do
   })
 end
 
-service "apache2" do
+service 'apache2' do
   supports :restart => true, :reload => true
   action :enable
 end
 
 execute 'a2ensite app.conf' do
   cwd '/etc/apache2/sites-available/'
-  notifies :reload, "service[apache2]"
+  notifies :reload, 'service[apache2]'
   not_if { ::File.exists?('/etc/apache2/sites-enabled/app.conf')}
 end
 
 execute 'a2dissite default' do
   cwd '/etc/apache2/sites-available/'
-  notifies :reload, "service[apache2]"
+  notifies :reload, 'service[apache2]'
   only_if { ::File.exists?('/etc/apache2/sites-enabled/000-default')}
 end

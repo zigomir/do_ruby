@@ -1,19 +1,45 @@
+virtualbox:
+  user:
+    name: deployer
+    ssh_keys:
+      - 'ssh-rsa AAAA...'
+      - 'ssh-rsa AAAA...'
+
+  shared_dir:
+    host:  .
+    guest: /vagrant
+
+  ruby:
+    version: 2.1.0
+    user:   deployer
+    group:  deployer
+    global: true
+
+  database:
+    user: deployer
+    names:
+      - app_production
+
 digital_ocean:
+  user:
+    name: deployer
+    ssh_keys:
+      - 'ssh-rsa AAAA...'
+      - 'ssh-rsa AAAA...'
+
   client_id: <your digital ocean client id>
   api_key:   <your digital ocean api key>
   image:     Ubuntu 12.04.3 x64 # Vagrant-Digital ocean for now supports this one
   region:    Amsterdam 1
   size:      1GB
 
-# Only for VirtualBox
-shared_dir:
-  host:  ~/path/to/your/project/code
-  guest: /home/deployer/app/current
+  ruby:
+    version: 2.1.0
+    user:   deployer
+    group:  deployer
+    global: true
 
-# Keys for the user on server (~/.ssh/authorized_keys)
-chef_conf:
-  ssh_keys:
-    - 'ssh-rsa AAAA...'
-    - 'ssh-rsa AAAA...'
-  ruby_version: 2.1.0
-  database_name: app_production
+  database:
+    user: deployer
+    names:
+      - app_production

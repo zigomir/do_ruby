@@ -9,6 +9,7 @@ CONF = YAML.load_file('server_config.yml')
 Vagrant.configure('2') do |config|
   config.omnibus.chef_version = :latest
   config.berkshelf.enabled    = true
+  provider_name = 'virtualbox'
 
   config.vm.provider :virtualbox do |provider, override|
     override.vm.box     = 'precise64'
@@ -35,6 +36,8 @@ Vagrant.configure('2') do |config|
     provider.image     = CONF['digital_ocean']['image']
     provider.region    = CONF['digital_ocean']['region']
     provider.size      = CONF['digital_ocean']['size']
+
+    provider_name = 'digital_ocean'
   end
 
   config.vm.provision :chef_solo do |chef|
@@ -50,8 +53,9 @@ Vagrant.configure('2') do |config|
     chef.add_recipe 'do_ruby::ruby'
     chef.add_recipe 'do_ruby::postgres'
     chef.add_recipe 'do_ruby::passenger'
-    chef.add_recipe 'do_ruby::node'
+    #chef.add_recipe 'do_ruby::node'
 
-    chef.json = { chef_conf: CONF['chef_conf'] }
+    # choose conf based on provider name (virtualbox or digital_ocean)
+    chef.json = { chef_conf: CONF[provider_name] }
   end
 end
