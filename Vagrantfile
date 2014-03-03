@@ -20,7 +20,7 @@ Vagrant.configure('2') do |config|
       :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
 
     override.vm.network :forwarded_port,  guest: 3000, host: 3000
-    override.vm.network :private_network, ip: '3.3.3.3'
+    override.vm.network :private_network, ip: '192.168.156.10'
 
     provider.customize ['modifyvm', :id, '--name',  'do_ruby']
     provider.customize ['modifyvm', :id, '--memory', 512]
