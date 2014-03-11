@@ -1,16 +1,22 @@
 virtualbox:
+  # virtual box specifics
+  name: boxeeh
+  memory: 512
+  private_ip: 192.168.156.10
+  forward_ports:
+    - 3000
+  shared_dir:
+    host:  .
+    guest: /vagrant
+
   user:
     name: deployer
     ssh_keys:
       - 'ssh-rsa AAAA...'
       - 'ssh-rsa AAAA...'
 
-  shared_dir:
-    host:  .
-    guest: /vagrant
-
   ruby:
-    version: 2.1.0
+    version: 2.1.1
     user:   deployer
     group:  deployer
     global: true
@@ -21,17 +27,18 @@ virtualbox:
       - app_production
 
 digital_ocean:
-  user:
-    name: deployer
-    ssh_keys:
-      - 'ssh-rsa AAAA...'
-      - 'ssh-rsa AAAA...'
-
+  # digital ocean specifics
   client_id: <your digital ocean client id>
   api_key:   <your digital ocean api key>
   image:     Ubuntu 12.04.3 x64 # Vagrant-Digital ocean for now supports this one
   region:    Amsterdam 1
   size:      1GB
+
+  user:
+    name: deployer
+    ssh_keys:
+      - 'ssh-rsa AAAA...'
+      - 'ssh-rsa AAAA...'
 
   ruby:
     version: 2.1.0

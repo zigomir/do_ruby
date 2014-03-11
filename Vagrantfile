@@ -19,11 +19,13 @@ Vagrant.configure('2') do |config|
     override.vm.synced_folder CONF['shared_dir']['host'], CONF['shared_dir']['guest'],
       :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
 
-    override.vm.network :forwarded_port,  guest: 3000, host: 3000
-    override.vm.network :private_network, ip: '192.168.156.10'
+    CONF['forward_ports'].each do |port|
+      override.vm.network :forwarded_port, guest: port, host: port
+    end
+    override.vm.network :private_network, ip: CONF['private_ip']
 
-    provider.customize ['modifyvm', :id, '--name',  'do_ruby']
-    provider.customize ['modifyvm', :id, '--memory', 512]
+    provider.customize ['modifyvm', :id, '--name',   CONF['name']]
+    provider.customize ['modifyvm', :id, '--memory', CONF['memory']]
   end
 
   config.vm.provider :digital_ocean do |provider, override|

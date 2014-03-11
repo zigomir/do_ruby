@@ -4,9 +4,11 @@
 
 Install [VirtualBox](https://www.virtualbox.org/) and then [Vagrant](http://www.vagrantup.com/).
 
+For now it only supports Vagrant up to 1.4.3 (`vagrant-berkshelf plugin doesn't work yet with Vagrant 1.5.0).
+
 ```bash
-gem install berkshelf --pre
-vagrant plugin install vagrant-berkshelf --plugin-version 1.4.0.dev1
+gem install berkshelf
+vagrant plugin install vagrant-berkshelf
 vagrant plugin install vagrant-omnibus
 vagrant plugin install vagrant-digitalocean
 ```
@@ -77,7 +79,3 @@ folders will be prepared and mounted on the VM.
 
 This is unfortunately a problem on Windows currently. I don't know yet how
 to work around, but this doesn't happen on OS X and probably Linux too.
-
-## TODO
-
-- define app name in `server_config.yml`
