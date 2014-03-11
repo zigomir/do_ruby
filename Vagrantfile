@@ -16,16 +16,16 @@ Vagrant.configure('2') do |config|
     override.vm.box_url = 'http://files.vagrantup.com/precise64.box'
     override.ssh.forward_agent = true
 
-    override.vm.synced_folder CONF['shared_dir']['host'], CONF['shared_dir']['guest'],
+    override.vm.synced_folder CONF['virtualbox']['shared_dir']['host'], CONF['virtualbox']['shared_dir']['guest'],
       :nfs => (RUBY_PLATFORM =~ /linux/ or RUBY_PLATFORM =~ /darwin/)
 
-    CONF['forward_ports'].each do |port|
+    CONF['virtualbox']['forward_ports'].each do |port|
       override.vm.network :forwarded_port, guest: port, host: port
     end
-    override.vm.network :private_network, ip: CONF['private_ip']
+    override.vm.network :private_network, ip: CONF['virtualbox']['private_ip']
 
-    provider.customize ['modifyvm', :id, '--name',   CONF['name']]
-    provider.customize ['modifyvm', :id, '--memory', CONF['memory']]
+    provider.customize ['modifyvm', :id, '--name',   CONF['virtualbox']['name']]
+    provider.customize ['modifyvm', :id, '--memory', CONF['virtualbox']['memory']]
   end
 
   config.vm.provider :digital_ocean do |provider, override|
